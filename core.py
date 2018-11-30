@@ -50,10 +50,18 @@ class Transformer(object):
         self.orig_data = data
         return self
 
+    def chain(func):
+        def decorator(self, *args, **kwargs):
+            if self.transformed_data:
+                self.orig_data, self.transformed_data = self.transformed_data, None
+            return func(self, *args, **kwargs)
+        return decorator
+
+    @chain
     def dropna(self):
         self.transformed_data = list(filter(lambda line_obj: line_obj.has_null is False, self.orig_data))
         return self
-        
+
 
 class Utils(object):
     def __init__(self):
@@ -95,7 +103,7 @@ if __name__ == '__main__':
     # print line.parse(field_delimiter=";").check_null(null_char="-")
 
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
-    transformer.fit(line_objects).dropna()
+    transformer.fit(line_objects).dropna().dropna()
 
     print len(line_objects)
     print len(transformer.transformed_data)
