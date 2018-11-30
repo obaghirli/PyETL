@@ -1,0 +1,206 @@
+;aspiration;body-style;bore;city-mpg;compression-ratio;curb-weight;drive-wheels;engine-location;engine-size;engine-type;fuel-system;fuel-type;height;highway-mpg;horsepower;length;make;normalized-losses;num-of-cylinders;num-of-doors;peak-rpm;price;stroke;weight;wheel-base;width
+0;std;convertible;3.47;21;9.00;2548;rwd;front;130;dohc;mpfi;gas;48.80;27;111,03;168.80;alfa-romero;-;four;two;5000;1349500;2.68;3;88.60;64.10
+1;std;convertible;3.47;21;9.00;2548;rwd;front;130;dohc;mpfi;gas;48.80;27;111,73;168.80;alfa-romero;-;-;two;5000;1650000;2.68;3;88.60;64.10
+2;-;hatchback;2.68;19;9.00;2823;rwd;front;152;ohcv;mpfi;gas;52.40;26;154,62;171.20;alfa-romero;-;six;two;5000;- ;3.47;1;94.50;65.50
+3;std;sedan;3.19;24;10.00;2337;fwd;front;109;ohc;mpfi;gas;54.30;30;102,30;176.60;audi;164;four;four;5500;1395000;3.40;2;99.80;66.20
+4;std;sedan;3.19;18;8.00;2824;4wd;front;136;ohc;mpfi;gas;54.30;22;115,50;176.60;audi;164;five;four;5500;1745000;3.40;2;99.40;66.40
+5;std;sedan;3.19;19;8.50;2507;fwd;front;136;ohc;mpfi;gas;53.10;25;110,81;177.30;audi;-;-;two;5500;1525000;3.40;2;99.80;66.30
+6;std;sedan;3.19;19;8.50;2844;fwd;front;136;ohc;mpfi;gas;55.70;25;110,79;192.70;audi;158;five;four;5500;1771000;3.40;1;105.80;71.40
+7;std;wagon;3.19;19;8.50;2954;fwd;front;136;ohc;mpfi;gas;55.70;25;110,33;192.70;audi;-;five;four;5500;1892000;3.40;1;105.80;71.40
+8;turbo;sedan;3.13;17;8.30;3086;fwd;front;131;ohc;mpfi;gas;55.90;20; -;192.70;audi;158;five;four;5500;2387500;3.40;1;105.80;71.40
+9;turbo;hatchback;3.13;16;7.00;3053;4wd;front;131;ohc;mpfi;gas;52.00;22;160,95;178.20;audi;-;five;two;5500;-;3.40;-;99.50;67.90
+10;std;sedan;3.50;23;8.80;2395;rwd;front;108;ohc;mpfi;gas;54.30;29;101,26;176.80;bmw;192;four;two;5800;1643000;2.80;2;101.20;64.80
+11;std;sedan;3.50;23;8.80;2395;rwd;front;108;ohc;mpfi;gas;54.30;29;101,44;176.80;bmw;192;four;four;5800;1692500;2.80;0;101.20;64.80
+12;std;sedan;3.31;21;9.00;2710;rwd;front;164;ohc;mpfi;gas;54.30;28;121,20;176.80;-;188;six;two;4250;2097000;3.19;0;101.20;64.80
+13;std;sedan;3.31;21;9.00;2765;rwd;front;164;ohc;mpfi;gas;54.30;28;121,38;176.80;bmw;188;six;four;4250;2110500;3.19;0;101.20;64.80
+14;std;sedan;3.31;20;9.00;3055;rwd;front;164;ohc;mpfi;gas;55.70;25;121,76;189.00;bmw;-;- ;four;4250;2456500;3.19;1;103.50;66.90
+15;std;sedan;3.62;16;8.00;3230;rwd;front;209;ohc;mpfi;gas;55.70;22;182,76;189.00;bmw;-;six;four;5400;3076000;3.39;0;103.50;66.90
+16;std;sedan;3.62;16;8.00;3380;rwd;-;209;ohc;mpfi;gas;53.70;22;182,35;193.80;bmw;-;six;two;5400;4131500;3.39; -;103.50;67.90
+17;std;sedan;3.62;15;8.00;3505;rwd;front;209;ohc;mpfi;gas;56.30;20;182,42;197.00;bmw;-;six;four;5400;3688000;3.39;0;110.00;70.90
+18;std;hatchback;2.91;47;9.50;1488;fwd;front;61;l;2bbl;gas;53.20;53;48,07;141.10;chevrolet;121;three;two;5100;515100;3.03;2;88.40;60.30
+19;std;hatchback;3.03;38;9.60;1874;fwd;front;90;ohc;2bbl;gas;52.00;43;-;155.90;chevrolet;98;four;two;5400;629500;3.11;1;94.50;63.60
+20;std;sedan;3.03;38;9.60;1909;fwd;front;90;ohc;2bbl;gas;52.00;43;70,80;158.80;chevrolet;81;four;four;5400; -;3.11;0;94.50;63.60
+21;std;hatchback;2.97;37;9.41;1876;fwd;front;90;ohc;2bbl;gas;50.80;41;68,56;157.30;dodge;118;four;two;5500;557200;3.23;-;93.70;63.80
+22;std;hatchback;2.97;31;9.40;1876;fwd;front;90;ohc;2bbl;gas;50.80;38;68,50;157.30;dodge;118;four;two;5500;637700;3.23;1;93.70;63.80
+23;turbo;hatchback;3.03;24;7.60;2128;fwd;front;98;ohc;mpfi;gas;50.80;30;102,29;157.30;dodge;118;four;two;5500;795700;3.39;1;93.70;63.80
+24;std;hatchback;2.97;31;9.40;1967;fwd; -;-;ohc;2bbl;gas;50.60;38;68,38;157.30;-;148;four;four;5500;622900;3.23;1;93.70;63.80
+25;std;sedan;2.97;31;9.40;1989;fwd;front;90;ohc;2bbl;gas;50.60;38;68,37;157.30;dodge;148;four;four;5500;669200;3.23;1;93.70;63.80
+26;std;sedan;2.97;31;9.40;1989;fwd;front;90;ohc;2bbl;gas;50.60;38;68,82;157.30;dodge;148;four;four;5500;- ;3.23;1;93.70;63.80
+27;turbo;sedan;3.03;24;7.60;2191;fwd;front;98;ohc;mpfi;gas;50.60;30;-;157.30;dodge;148;four;-;5500;855800;3.39;1;93.70;63.80
+28;std;wagon;3.34;24;8.50;2535;fwd;front;122;ohc;2bbl;gas;59.80;30;88,87;174.60;dodge;110;- ;four;5000;892100;3.46;-1;103.30;64.60
+29; -;hatchback;3.60;19;7.00;2811;fwd;front;156;ohc;mfi;gas;50.20;24;145,69;173.20;dodge;145;four;two;5000;1296400;3.90;3;95.90;66.30
+30;std;hatchback;2.91;49;9.60;1713;fwd;front;- ;ohc;1bbl;gas;50.80;54;58,63;144.60;honda;137;four;two;4800;647900;3.41;2;86.60;63.90
+31;std;hatchback;2.91;31;9.20;1819;fwd;front;92;ohc;1bbl;gas;50.80;38;76,07;144.60;honda;137;-;two;6000;685500;3.41;2;86.60;63.90
+32;std;hatchback;2.91;38;10.10;1837;fwd;front; -;ohc;1bbl;gas;52.60;42;60,10;150.00;honda;101;four;two;5500;539900;3.07;1;93.70;64.00
+33;std;hatchback;2.91;30;9.20;1940;fwd;front;- ;ohc;1bbl;gas;52.60;34;76,21;150.00;honda;101;four;two;6000;652900;3.41;1;93.70;64.00
+34;std;hatchback;2.91;30;9.20;1956;fwd;front; -;ohc;1bbl;gas;52.60;34;76,83;150.00;honda;101;four;two;6000;712900;3.41;1;93.70;64.00
+35;std;sedan;2.91;30;9.20;2010;fwd;front;92;ohc;1bbl;gas;54.50;34;76,26;163.40;honda;110;four;four;6000;-;3.41;0;96.50;64.00
+36;std;wagon;2.92;30;9.20;2024;fwd;front; -;ohc;1bbl;gas;58.30;34;76,88;157.10;honda;78;four;four;6000;729500;3.41;0;96.50;63.90
+37;std;hatchback;3.15;27;9.00;2236;fwd;front;110;ohc;1bbl;gas;53.30;33;-;167.50;honda;106;four;two;5800;789500;3.58;0;96.50;65.20
+38;std;hatchback;3.15;27;9.00;2289;fwd;front;110;ohc;1bbl;gas;53.30;33;86,48;167.50;honda;106;four;two;5800;909500;3.58;0;96.50;65.20
+39;std;sedan;3.15;27;9.00;2304;fwd;front;110;ohc;1bbl;gas;54.10;33;86,78;175.40;honda;85;four;four;5800;884500;3.58;-;96.50;65.20
+40;std;sedan;3.15;27;9.00;2372;fwd;front;-;ohc;1bbl;gas;54.10;33;86,34;175.40;- ;85;four;four;5800;1029500;3.58;0;96.50;62.50
+41;std;sedan;3.15;24;9.00;2465;fwd;front;110;ohc;mpfi;gas;54.10;28;101,74;175.40;-;85;four;four;5800;1294500;3.58;0;96.50;65.20
+42;std;sedan;3.15;25;9.10;2293;fwd;front;- ;ohc;2bbl;gas;51.00;31;100,55;169.10;honda;107;four;two;5500;1034500;3.58;1;96.50;66.00
+43;std;sedan;3.31;24;8.50;2337;rwd;front;111;ohc;2bbl;gas;53.50;29;78,35;170.70;isuzu;-;four;four;4800;678500;3.23;-;94.30;61.80
+44;std;sedan;3.03;38;9.60;1874;fwd;front;90;ohc;2bbl;gas;52.00;43;70,30;155.90;isuzu;-;four;two;5400;-;3.11;- ;94.50;63.60
+45;std;sedan;3.03;38;9.60;1909;fwd;front;90;ohc;2bbl;gas;52.00;43;70,51;155.90;isuzu;-;four;four;5400;-;3.11;0;94.50;63.60
+46;std;hatchback;3.43;24;9.20;2734;rwd;front; -;ohc;spfi;gas;51.40;29;90,44;172.60;-;-;four;two;5000;1104800;3.23;2;96.00;65.20
+47;std;sedan;3.63;15;8.10;4066;rwd;front;258;dohc;mpfi;gas;52.80;19;176,72;199.60;-;145;six;four;4750;3225000;4.17; -;113.00;69.60
+48;std;sedan;3.63;15;8.10;4066;rwd;front;258;dohc;mpfi;gas;52.80;19;176,93;199.60;jaguar;-;six;four;4750;3555000;4.17;0;113.00;69.60
+49;-;sedan;3.54;13;11.50;3950;rwd;front;326;ohcv;mpfi;gas;47.80;17;262,26;191.70;jaguar;-;twelve;two;5000;3600000;2.76;- ;102.00;70.60
+50;std;hatchback;3.03;30;9.00;1890;fwd;front;91;ohc;2bbl;gas;54.10;31;68,50;159.10;mazda;104;four;two;5000;519500;3.15;- ;93.10;64.20
+51;std;hatchback;3.03;31;9.00;1900;fwd;front;91;ohc;2bbl;gas;54.10;38;68,17;159.10;mazda;104;four;two;5000; -;3.15;1;93.10;64.20
+52;std;hatchback;3.03;31;9.00;1905;fwd;front;91;ohc;2bbl;gas;54.10;38;68,65;159.10;mazda;104;four;two;5000;679500;3.15;1;93.10;64.20
+53;std;sedan;3.03;31;9.00;1945;fwd;front;91;ohc;2bbl;gas;54.10;38;68,22;166.80;mazda;113;four;four;5000;669500;3.15;1;93.10;64.20
+54;std;sedan;3.08;31;9.00;1950;fwd; -;- ;ohc;2bbl;gas;54.10;38;68,24;166.80;mazda;113;four;four;5000;739500;3.15;1;93.10;64.20
+55;std;hatchback;-;17;9.40;2380;rwd;front;70;rotor;4bbl;gas;49.60;23;-;169.00;mazda;150;two;two;6000;1094500;-;- ;95.30;65.70
+56;std;hatchback;-;17;9.40;2380;rwd;front;70;rotor;4bbl;gas;49.60;23;101,07;169.00;mazda;150;two;two;6000;1184500;-;3;95.30;65.70
+57;std;hatchback;-;17;9.40;2385;rwd;- ;70;rotor;4bbl;gas;49.60;23;101,61;169.00;mazda;150;two;two;6000;1364500;-;3;95.30;65.70
+58;std;hatchback;-;16;9.40;2500;rwd;front;80;rotor;mpfi;gas;49.60;23;135,01;169.00;mazda;150;two;two;6000;1564500;-;3;95.30;65.70
+59;std;hatchback;3.39;26;8.60;2385;fwd;front;122;ohc;2bbl;gas;53.70;32;84,00;177.80;mazda;129;four;two;4800;884500;3.39;1;98.80;66.50
+60;std;sedan;3.39;26;8.60;2410;fwd;front; -;ohc;2bbl;gas;55.50;32;84,62;177.80;mazda;115;four;four;4800;849500;3.39;0;98.80;66.50
+61;std;hatchback;3.39;26;8.60;2385;fwd;front;122;ohc;2bbl;gas;53.70;32;84,39;177.80;mazda;129;four;two;4800;1059500;3.39;1;98.80;66.50
+62;std;sedan;3.39;26;8.60;2410;fwd;front;122;ohc;2bbl;gas;55.50;32;- ;177.80;mazda;115;four;four;4800;1024500;3.39;0;98.80;66.50
+63; -;sedan;3.39;36;22.70;2443;fwd;front;122;ohc;idi;diesel;55.50;42;- ;177.80;mazda;-;four;-;4650;1079500;3.39;0;98.80;66.50
+64;std;hatchback;3.39;26;8.60;2425;fwd;front;122;ohc;2bbl;gas;55.50;32;-;177.80;mazda;115;four;four;4800;1124500;3.39;0;98.80;66.50
+65;std;sedan;3.76;19;8.00;2670;rwd;front;- ;ohc;mpfi;gas;54.40;27;- ;175.00;mazda;118;four;four;5000; -;3.16;0;104.90;66.10
+66;std;sedan;3.43;31;22.00;2700;rwd;front;134;ohc;idi;diesel;54.40;39;-;175.00;mazda;-;four;four;4200;1834400;3.64;0;104.90;66.10
+67;turbo;sedan;3.58;22;21.50;3515;rwd;front;183;ohc;idi;diesel;56.50;25;123,58;190.90;mercedes-benz;93;five;four;4350;2555200;3.64;-1;110.00;70.30
+68;turbo;wagon;3.58;22;21.50;3750;rwd;front;183;ohc;idi;diesel;58.70;25;123,56;190.90;mercedes-benz;93;five;four;4350;2824800;3.64;-1;110.00;70.30
+69;turbo;hardtop;3.58;22;21.50;3495;rwd;front;183;ohc;idi;diesel;54.90;25;-;187.50;- ;93;five;two;4350;2817600;3.64;0;106.70;70.30
+70;turbo;sedan;3.58;22;21.50;3770;rwd;front; -;ohc;idi;diesel;56.30;25;123,77;202.60;mercedes-benz;93;five;four;4350;3160000;3.64;-1;115.60;71.70
+71;std;sedan;3.46;16;8.30;3740;rwd;front;234;ohcv;mpfi;gas;56.50;18;155,33;202.60;mercedes-benz;-;eight;four;4750;3418400;3.10;-1;115.60;71.70
+72;std;convertible;3.46;16;8.30;3685;rwd;front;234;ohcv;mpfi;gas;50.80;18;155,88;180.30;mercedes-benz;142;eight;two;4750;3505600;3.10;3;96.60;70.50
+73;std;sedan;3.80;14;8.00;3900;rwd;front;308;ohcv;mpfi;gas;56.70;16;184,46;208.10;mercedes-benz;-;eight;four;4500;4096000;3.35;0;120.90;71.70
+74;-;hardtop;3.80;14;8.00;3715;rwd;front;304;ohcv;mpfi;gas;55.40;16;184,39;199.20;mercedes-benz;-;eight;two;4500;4540000;3.35;1;112.00;72.00
+75;turbo;hatchback;3.78;19;8.00;2910;rwd;front;140;ohc;mpfi;gas;54.80;24;175,78;178.40;mercury;-;four;two;5000;1650300;3.12;1;102.70;68.00
+76;-;hatchback;2.97;37;9.40;1918;fwd;-;92;ohc;2bbl;gas;50.80;41;68,89;157.30;mitsubishi;161;four;two;5500;- ;3.23;2;93.70;64.40
+77;std;hatchback;2.97;31;9.40;1944;fwd;front;92;ohc;2bbl;gas;50.80;38;68,10;157.30;mitsubishi;161;four;two;5500;618900;3.23;2;93.70;64.40
+78;std;hatchback;2.97;31;9.40;2004;fwd;front;92;ohc;2bbl;gas;50.80;38;68,40;157.30;mitsubishi;161;four;two;5500;666900;3.23;2;93.70;64.40
+79;turbo;hatchback;3.03;24;7.60;2145;fwd;front;98;ohc;spdi;gas;50.80;30;102,78;157.30;mitsubishi;161;four;two;5500;768900;3.39;1;93;63.80
+80;turbo;hatchback;3.17;23;7.50;2370;fwd;front;110;ohc;spdi;gas;49.40;30;116,49;173.00;mitsubishi;153;four;two;5500;995900;3.46;-;96.30;65.40
+81;std;hatchback;3.35;25;8.50;2328;fwd;front;122;ohc;2bbl;gas;49.40;32;88,41;173.00;mitsubishi;153;four;two;5000;849900;3.46;3;96.30;65.40
+82;turbo;hatchback;3.58;19;7.00;2833;fwd;front;156;ohc;spdi;gas;50.20;24;145,43;173.20;mitsubishi;-;four;two;5000;1262900;3.86;- ;95.90;66.30
+83;turbo;hatchback;3.59;19;7.00;2921;fwd;front;156;ohc;spdi;gas;50.20;24;145,95;173.20;mitsubishi;-;four;two;5000;1486900;3.86;- ;95.90;66.30
+84;turbo;hatchback;3.59;19;7.00;2926;fwd;front;156;ohc;spdi;gas;50.20;24;145,16;173.20;mitsubishi;-; -;two;5000;1448900;3.86;3;95.90;66.30
+85;std;sedan;3.35;25;8.50;2365;fwd;front;122;ohc;2bbl;gas;51.60;32;88,78;172.40;-;125;four;four;5000;698900;3.46;1;96.30;65.40
+86;std;sedan;3.35;25;8.50;2405;fwd;front;122;ohc;2bbl;gas;51.60;32;88,49;172.40;mitsubishi;125;four;four;5000;818900;3.46;1;96.30;65.40
+87;turbo;sedan;3.17;23;7.50;2403;fwd;front;110;ohc;spdi;gas;51.60;30;116,44;172.40;mitsubishi;125;four;four;5500;927900;3.46;1;96.30;65.40
+88;std;sedan;3.17;23;7.50;2403;fwd;front;110;ohc;spdi;gas;51.60;30; -;172.40;mitsubishi;137;four;four;5500;927900;3.46;-1;96.30;65.40
+89;std;sedan;3.15;31;9.40;1889;fwd;front;97;ohc;2bbl;gas;54.50;37;- ;165.30;nissan;128;four;two;5200;-;3.29;1;94.50;63.80
+90;std;sedan;2.99;45;21.90;2017;fwd;front;103;ohc;idi;diesel;54.50;50;55,30;165.30;nissan;128;four;two;4800;-;3.47;1;94.50;63.80
+91;std;sedan;3.15;31;9.40;1918;fwd;front;97;ohc;2bbl;gas;54.50;37;69,94;165.30;nissan;128;four;two;5200;664900;3.29;1;94.50;63.80
+92;std;sedan;3.15;31;9.40;1938;fwd;front;97;ohc;2bbl;gas;54.50;37;69,65;165.30;nissan;122;four;four;5200;684900;3.29;1;94.50;63.80
+93;std;wagon;3.15;31;9.40;2024;fwd;front;97;ohc;2bbl;gas;53.50;37;- ;170.20;nissan;103;four;four;5200;734900;3.29;1;94.50;63.80
+94;std;sedan;3.15;31;9.40;1951;fwd;front;97;ohc;2bbl;gas;54.50;37;69,06;165.30;nissan;128;four;two;5200;729900;3.29;1;94.50;63.80
+95;std;hatchback;3.15;31;9.40;2028;fwd;front;97;ohc;2bbl;gas;53.30;37;69,93;165.60;-;128;four;two;5200;779900;3.29;1;94.50;63.80
+96;std;sedan;3.15;31;9.40;1971;fwd;front;97;ohc;2bbl;gas;54.50;37;69,13;165.30;- ;122;four;four;5200;749900;3.29;1;94.50;63.80
+97;std;wagon;3.15;31;9.40;2037;fwd;front;97;ohc;2bbl;gas;53.50;37;69,36;170.20;nissan;103;four;four;5200;799900;3.29;1;94.50;63.80
+98;std;hardtop;3.15;31;9.40;2008;fwd;front;97;ohc;2bbl;gas;53.30;37;-;162.40;nissan;168;four;two;5200;824900;3.29;2;95.10;63.80
+99;std;hatchback;3.33;27;8.50;2324;fwd;front;120;ohc;2bbl;gas;54.70;34;97,53;173.40;nissan;106;four;four;5200;894900;3.47;0;97.20;65.20
+100;std;sedan;3.33;27;8.50;2302;fwd;front;120;ohc;2bbl;gas;54.70;34;97,82;173.40;nissan;106;four;four;5200;954900;3.47;0;97.20;65.20
+101; -;sedan;3.43;17;9.00;3095;fwd;front;181;ohcv;mpfi;gas;55.10;22; -;181.70;nissan;128;six;four;5200;1349900;3.27;0;100.40;66.50
+102;std;wagon;3.43;17;9.00;3296;fwd;front;181;ohcv;mpfi;gas;56.10;22;152,43;184.60;nissan;108;six;four;5200;1439900;3.27;0;100.40;66.50
+103;std;sedan;3.43;19;9.00;3060;fwd;front;181;ohcv;mpfi;gas;55.10;25;152,47;184.60;nissan;108;six;four;5200;1349900;3.27;0;100.40;66.50
+104;std;hatchback;3.43;19;9.00;3071;rwd;front;181;ohcv;mpfi;gas;49.70;25;160,30;170.70;nissan;194;six;two;5200;1719900;3.27;3;91.30;67.90
+105;turbo;hatchback;3.43;17;7.80;3139;rwd;front;181;ohcv;mpfi;gas;49.70;23;200,39;170.70;- ;194;-;two;5200;1969900;3.27;-;91.30;67.90
+106;std;hatchback;3.43;19;9.00;3139;rwd;front;181;ohcv;mpfi;gas;49.70;25;160,94;178.50;nissan;231;six;two;5200;1839900;3.27;1;99.20;67.90
+107;std;sedan;3.46;19;8.40;3020;rwd;front;120;l;mpfi;gas;56.70;24;- ;186.70;peugot;161; -;four;5000;1190000;3.19;0;107.90;68.40
+108;turbo;sedan;3.70;28;21.00;3197;rwd;front;152;l;idi;diesel;56.70;33;95,20;186.70;peugot;161;four;four;4150;1320000;3.52;0;107.90;68.40
+109;std;wagon;3.46;19;8.40;3230;rwd;-;120;l;mpfi;gas;58.70;24;97,07;198.90;peugot;-;four;four;5000;1244000;3.19;0;114.20;68.40
+110;turbo;wagon;3.70;25;21.00;3430;rwd;front;152;l;idi;diesel;58.70;25;95,19;198.90;peugot;-;four;four;4150;1386000;3.52;0;114.20;68.40
+111;std;sedan;3.46;19;8.40;3075;rwd;front;120;l;mpfi;gas;56.70;24;95,50;186.70;peugot;161;four;four;5000;1558000;2.19;0;107.90;68.40
+112;turbo;sedan;3.70;28;21.00;3252;rwd;front;152;l;idi;diesel;56.70;33;95,73;186.70;peugot;161;four;four;4150;1690000;3.52;0;107.90;68.40
+113;std;wagon;3.46;19;8.40;3285;rwd;front;120;l;mpfi;gas;56.70;24;95,07;198.90;peugot;-;four;four;5000;1669500;2.19;0;114.20;68.40
+114;turbo;wagon;3.70;25;21.00;3485;rwd;front;152;l;idi;diesel;58.70;25;95,73;198.90;peugot;-;four;four;4150;1707500;3.52;0;114.20;68.40
+115;std;sedan;3.46;19;8.40;3075;rwd;front;120;l;mpfi;gas;56.70;24;97,73;186.70;peugot;161;four;four;5000;1663000;3.19;0;107.90;68.40
+116;turbo;sedan;3.70;28;21.00;3252;rwd;front;152;l;idi;diesel;56.70;33;95,84;186.70;peugot;161;four;four;4150;1795000;3.52;0;107.90;68.40
+117;turbo;sedan;3.61;18;7.00;3130;rwd;front;134;l;mpfi;gas;56.00;24;142,84;186.70;- ;161;four;four;5600;1815000;3.21;0;108.00;68.30
+118;std;hatchback;2.97;37;9.40;1918;fwd;front;90;ohc;2bbl;gas;50.80;41;68,16;157.30;plymouth;119;four;two;5500;557200;3.23;1;93.70;63.80
+119;turbo;hatchback;3.03;24;7.60;2128;fwd;front;98;ohc;spdi;gas;50.80;30;102,53;157.30;plymouth;119;four;two;5500;795700;3.39;1;93.70;63.80
+120;std;hatchback;2.97;31;9.40;1967;fwd;front;90;ohc;2bbl;gas;50.60;38;-;157.30;plymouth;154;four;four;5500;622900;3.23;1;93.70;63.80
+121;std;sedan;2.97;31;9.40;1989;fwd;front;90;ohc;2bbl;gas;50.80;38;68,02;167.30;plymouth;154;four;four;5500;669200;3.23;1;93.70;63.80
+122;std;sedan;2.97;31;9.40;2191;fwd;front;98;ohc;2bbl;gas;50.80;38;-;167.30;plymouth;154;four;four;5500;-;3.23;1;93.70;63.80
+123;std;wagon;3.35;24;8.50;2535;fwd;front;- ;ohc;2bbl;gas;59.80;30;88,29;174.60;plymouth;74;four;four;5000;892100;3.46;-;103.30;64.60
+124;turbo;hatchback;3.59;19;7.00;2818;rwd;- ;156;ohc;spdi;gas;50.20;24;- ;173.20;plymouth;-;four;two;5000;1276400;3.86;3;95.90;66.30
+125;- ;hatchback;3.94;19;9.50;2778;rwd;front;151;ohc;mpfi;gas;50.20;27;- ;168.90;porsche;186;four;two;5500;2201800;3.11;3;94.50;68.30
+126;std;hardtop;3.74;17;9.50;2756;rwd;rear;194;ohcf;mpfi;gas;51.60;25;207,41;168.90;porsche;-;six;two;5900;3252800;2.90;3;89.50;65.00
+127;std;hardtop;3.74;17;9.50;2756;rwd;rear;194;ohcf;mpfi;gas;51.60;25;207,28;168.90;porsche;-;six;two;5900;3402800;2.90;3;89.50;65.00
+128;std;convertible;3.74;17;9.50;2800;rwd;rear;194;ohcf;mpfi;gas;51.60;25;207,07;168.90;porsche;-;six;two;5900;3702800;2.90;3;89.50;65.00
+129; -;hatchback;3.94;17;10.00;3366;rwd;front;203;dohcv;mpfi;gas;50.50;28;288,16;175.70;porsche;-;eight;two;5750;-;3.11;1;98.40;72.30
+130;std;wagon;3.46;23;8.70;2579;fwd;front;132;ohc;mpfi;gas;55.20;31;-;181.50;renault;-;four;four;-;929500;3.90;0;96.10;66.50
+131;std;hatchback;3.46;23;8.70;2460;fwd;front;132;ohc;mpfi;gas;50.50;31;-;176.80;renault;-;four;two;-;989500;3.90;2;96.10;66.60
+132;std;hatchback;3.54;21;9.31;2658;fwd;front;121;ohc;mpfi;gas;56.10;28; -;186.60;saab;150;four;two;5250;1185000;3.07; -;99.10;66.50
+133;std;sedan;3.54;21;9.30;2695;fwd;front;121;ohc;mpfi;gas;56.10;28;110,50;186.60;saab;104;four;four;5250;1217000;3.07;2;99.10;66.50
+134;std;hatchback;2.54;21;9.30;2707;fwd;front;121;ohc;mpfi;gas;56.10;28;160,99;186.60;saab;150;four;two;5250;1504000;2.07;3;99.10;66.50
+135;std;sedan;3.54;21;9.30;2758;fwd;front;121;ohc;mpfi;gas;56.10;28;160,00;186.60;-;104; -;four;5250;1551000;3.07;-;99.10;66.50
+136;turbo;hatchback;3.54;19;9.00;2808;fwd;front;121;dohc;mpfi;gas;56.10;26;69,07;186.60;saab;150;four;two;5500;1815000;3.07;3;99.10;66.50
+137;turbo;sedan;3.54;19;9.00;2847;fwd;front;121;dohc;mpfi;gas;56.10;26;73,95;186.60;-;104;four;four;5500;1862000;3.07;2;99.10;66.50
+138;std;hatchback;3.62;31;9.00;2050;fwd;front;97;ohcf;2bbl;gas;53.70;36;73,76;156.90;subaru;83;-;two;4900;511800;2.36;2;93.70;63.40
+139;std;hatchback;3.62;26;8.70;2120;fwd;front;108;ohcf;2bbl;gas;53.70;31;82,19;157.90;subaru;83;four;two;4400;705300;2.64;2;93.70;63.60
+140;std;hatchback;3.62;26;8.70;2240;4wd;front;108;ohcf;2bbl;gas;55.70;31;82,60;157.30;subaru;83;four;two;4400;760300;2.64;2;93.30;63.80
+141;std;sedan;3.62;32;9.50;2145;fwd;front;108;ohcf;2bbl;gas;52.50;37;94,77;172.00;subaru;102;four;four;4800;712600;2.64;0;97.20;65.40
+142;std;sedan;3.62;28;9.50;2190;fwd;front;108;ohcf;2bbl;gas;52.50;33;82,78;172.00;subaru;102;four;four;4400;777500;2.64;0;97.20;65.40
+143;std;sedan;3.62;26;9.00;2340;fwd;front;108;ohcf;mpfi;gas;52.50;32;111,37;172.00;subaru;102;four;four;5200;996000;2.64;0;97.20;65.40
+144;std;sedan;3.62;24;9.00;2385;4wd;front;108;ohcf;2bbl;gas;54.30;25;82,94;172.00;subaru;102;four;four;4800;923300;2.64; -;97.00;65.40
+145;turbo;sedan;3.62;24;7.70;2510;4wd;front;108;ohcf;mpfi;gas;54.30;29;94,60;172.00;subaru;102;four;four;4800;1125900;2.64;0;97.00;65.40
+146;std;wagon;3.62;28;9.00;2290;fwd;front;108;ohcf;2bbl;gas;53.00;32;82,56;173.50;subaru;89;four;four;4800;746300;2.64;0;97.00;65.40
+147;std;wagon;3.62;25;9.00;2455;fwd;front;108;ohcf;mpfi;gas;53.00;31;111,50;173.50;subaru;89;four;four;5200;1019800;2.64;0;97.00;65.40
+148; -;wagon;3.62;23;9.00;2420;4wd;front;108;ohcf;2bbl;gas;54.90;29;62,75;173.60;subaru;85;four;four;4800;801300;2.64;0;96.90;65.40
+149;turbo;wagon;3.62;23;7.70;2650;4wd;front;108;ohcf;mpfi;gas;54.90;23;62,67;173.60;subaru;85;four;four;4800;1169400;2.64;0;96.90;65.40
+150;std;hatchback;3.05;35;9.00;1985;fwd;- ;-;ohc;2bbl;gas;54.50;39;62,66;158.70;toyota;87;four;two;4800;534800;3.03;1;95.70;63.60
+151;std;hatchback;3.05;31;9.00;2040;fwd;front;92;ohc;2bbl;gas;54.50;38;62,23;158.70;toyota;87;four;two;4800;633800;3.03;1;95.70;63.60
+152;std;hatchback;3.05;31;9.00;2015;fwd;front;92;ohc;2bbl;gas;54.50;38;62,46;158.70;toyota;74;four;four;4800;648800;3.03;1;95.70;63.60
+153;std;wagon;3.05;31;9.00;2280;fwd;front;92;ohc;2bbl;gas;59.10;37;62,01;169.70;toyota;77;four;four;4800;691800;3.03; -;95.70;63.60
+154;std;wagon;3.05;27;9.00;2290;4wd;front;92;ohc;2bbl;gas;59.10;32;70,55;169.70;toyota;81;four;four;4800;789800;3.03;0;95.70;63.60
+155;std;wagon;3.05;27;9.00;3110;4wd;-;92;ohc;2bbl;gas;59.10;32;70,58;169.70;toyota;91;four;four;4800;877800;3.03;0;95.70;63.60
+156;std;sedan;3.19;30;9.00;2081;fwd;front;98;ohc;2bbl;gas;53.00;37;56,29;166.30;toyota;91;four;four;4800;693800;3.03;0;95.70;64.40
+157;std;hatchback;3.19;30;9.00;2109;fwd;front;98;ohc;2bbl;gas;52.80;37;56,62;166.30;toyota;91;four;four;4800;719800;3.03;0;95.70;64.40
+158;std;sedan;3.27;34;22.50;2275;fwd;front;110;ohc;idi;diesel;53.00;36;70,99;166.30;toyota;91;four;four;4500;789800;3.35;0;95.70;64.40
+159; -;hatchback;3.27;38;22.50;2275;fwd;front;110;ohc;idi;diesel;52.80;47;70,42;166.30; -;91;four;four;4500;778800;3.35;0;95.70;64.40
+160;-;sedan;3.19;38;9.00;2094;fwd;front;98;ohc;2bbl;gas;53.00;47;70,40;166.30;toyota;91;four;four;4800;773800;3.03;0;95.70;64.40
+161;- ;hatchback;3.19;28;9.00;2122;fwd;front;98;ohc;2bbl;gas;52.80;34;70,95;166.30;toyota;91;-;four;4800;835800;3.03;0;95.70;64.40
+162; -;sedan;3.19;28;9.00;2140;fwd;front;98;ohc;2bbl;gas;52.80;34;70,33;166.30;toyota;91;four;four;4800;925800;3.03;0;95.70;64.40
+163;std;sedan;3.19;29;9.00;2169;rwd;front;98;ohc;2bbl;gas;52.60;34;112,38;168.70;toyota;168;four;two;4800;805800;3.03;1;94.50;64.00
+164;std;hatchback;3.19;29;9.00;2204;rwd;front;98;ohc;2bbl;gas;52.60;34;112,71;168.70;toyota;168;four;two;4800;823800;3.03;1;94.50;64.00
+165; -;sedan;3.24;26;9.40;2265;rwd;front;98;dohc;mpfi;gas;52.60;29; -;168.70;toyota;168;four;two;6600;929800;3.08;1;94.50;64.00
+166;std;hatchback;3.24;26;9.40;2300;rwd;front;98;dohc;mpfi;gas;52.60;29; -;168.70;toyota;168;four;two;6600;953800;3.08;1;94.50;64.00
+167;std;hardtop;3.62;24;9.30;2540;rwd;front;146;ohc;mpfi;gas;52.00;30;116,01;176.20; -;134;four;two;4800;844900;3.50;2;98.40;65.60
+168;std;hardtop;3.62;24;9.30;2536;rwd;front;146;ohc;mpfi;gas;52.00;30;116,22;176.20;toyota;134;four;two;4800;963900;3.50;2;98.40;65.60
+169;std;hatchback;3.62;24;9.30;2551;rwd;front;146;ohc;mpfi;gas;52.00;30;-;176.20;toyota;134;four;two;4800;998900;3.50;2;98.40;65.60
+170;std;hardtop;3.62;24;9.30;2679;rwd;front;146;ohc;mpfi;gas;52.00;30;116,56;176.20;toyota;134;four;two;4800; -;3.50; -;98.40;65.60
+171;std;hatchback;3.62;24;9.30;2714;rwd;front;146;ohc;mpfi;gas;52.00;30;92,84;176.20;toyota;134;four;two;4800;1154900;3.50;2;98.40;65.60
+172;std;convertible;3.62;24;9.30;2975;rwd;front;146;ohc;mpfi;gas;53.00;30;73,83;176.20;toyota;134;four;two;4800;1766900;3.50;2;98.40;65.60
+173;std;sedan;3.31;29;8.70;2326;fwd; -;122;ohc;mpfi;gas;54.90;34;92,60;175.60;toyota;65;four;four;4200;894800;3.54;-;102.40;66.50
+174;turbo;sedan;3.27;30;22.50;2480;fwd;front;110;ohc;idi;diesel;54.90;33;92,35;175.60;toyota;65;four;four;4500;1069800;3.35;-1;102.40;66.50
+175;std;hatchback;3.31;27;8.70;2414;fwd;front;122;ohc;mpfi;gas;53.90;32;92,79;175.60;toyota;65;four;four;4200; -;3.54;-1;102.40;66.50
+176;std;sedan;3.31;27;8.70;2414;fwd;front;122;ohc;mpfi;gas;54.90;32;161,37;175.60;toyota;65;four;four;4200;1089800;3.54;-1;102.40;66.50
+177;std;hatchback;3.31;27;8.70;2458;fwd;-;- ;ohc;mpfi;gas;53.90;32;-;175.60;toyota;65;four;four;4200;1124800;3.54;-1;102.40;66.50
+178;std;hatchback;3.27;20;9.30;2976;rwd;front;171;dohc;mpfi;gas;52.00;24;156,63;183.50;toyota;197;six;two;5200;1655800;3.35;3;102.90;67.70
+179;std;hatchback;3.27;19;9.30;3016;rwd;front;171;dohc;mpfi;gas;52.00;24;-;183.50;toyota;197;six;two;5200;1599800;3.35;3;102.90;67.70
+180;std;sedan;3.27;20;9.20;3131;rwd;-;171;dohc;mpfi;gas;54.10;24;52,70;187.80;toyota;90;six;four;5200;1569000;3.35;-1;104.50;66.50
+181;std;wagon;3.27;19;9.20;3151;rwd;front;161;dohc;mpfi;gas;54.10;24;85,25;187.80;toyota;-;six;four;5200;1575000;3.35;-1;104.50;66.50
+182;std;sedan;3.01;37;23.00;2261;fwd; -;97;ohc;idi;diesel;55.70;46;52,61;171.70;volkswagen;122;four;two;4800;777500;3.40;2;97.30;65.50
+183;std;sedan;3.19;27;9.00;2209;fwd;front;109;ohc;mpfi;gas;55.70;34;85,33;171.70;volkswagen;122;-;two;5250;797500;3.40;2;97.30;65.50
+184;std;sedan;3.01;37;23.00;2264;fwd;front;97;ohc;idi;diesel;55.70;46;85,04;171.70;volkswagen;94;four;four;4800;- ;3.40;2;97.30;65.50
+185;std;sedan;3.19;27;9.00;2212;fwd;front;109;ohc;mpfi;gas;55.70;34;68,41;171.70;volkswagen;94;four;four;5250;819500;3.40;2;97.30;65.50
+186;std;sedan;3.19;27;9.00;2275;fwd;front;109;ohc;mpfi;gas;55.70;34; -;171.70;volkswagen;94;four;four;5250;849500;3.40;2;97.30;65.50
+187;turbo;sedan;3.01;37;23.00;2319;fwd;front;97;ohc;idi;diesel;55.70;42;90,40;171.70;volkswagen;94;four;four;4500;949500;3.40;2;97.30;65.50
+188;std;sedan;3.19;26;10.00;2300;fwd;front;109;ohc;mpfi;gas;55.70;32;90,90;171.70;volkswagen;94;four;four;5500;999500;3.40;2;97.30;65.50
+189;std;convertible;3.19;24;8.50;2254;fwd;front;109;ohc;mpfi;gas;55.60;29;110,82;159.30;volkswagen;-;four;two;5500;1159500;3.40;3;94.50;64.20
+190;std;hatchback;3.19;24;8.50;2221;fwd;front;109;ohc;mpfi;gas;51.40;29;68,67;165.70;volkswagen;256;four;two;5500;998000;3.40;3;94.50;64.00
+191;-;sedan;3.19;19;8.50;2661;fwd;- ;136;ohc;mpfi;gas;55.10;24;88,14;180.20;volkswagen;-;five;four;5500;1329500;3.40;0;100.40;66.90
+192;turbo;sedan;3.01;33;23.00;2579;fwd;front;97;ohc;idi;diesel;55.10;38;114,65;180.20;- ;-; -;four;4500;1384500;3.40;- ;100.40;66.90
+193;std;wagon;3.19;25;9.00;2563;fwd; -;109;ohc;mpfi;gas;55.10;31;114,00;183.10;volkswagen;-;four;four;5500;1229000;3.40;0;100.40;66.90
+194;std;sedan;3.78;23;9.50;2912;rwd;front;- ;ohc;mpfi;gas;56.20;28;114,12;188.80;volvo;103;four;four;5400;1294000;3.15;-2;104.30;67.20
+195;std;wagon;3.78;23;9.50;3034;rwd;front;141;ohc;mpfi;gas;57.50;28;114,01;188.80;volvo;74;four;four;5400;1341500;3.15;-1;104.30;67.20
+196;std;sedan;3.78;24;9.50;2935;rwd;front;141;ohc;mpfi;gas;56.20;28;162,29;188.80; -;103;four;four;5400;1598500;3.15;-2;104.30;67.20
+197;std;wagon;3.78;24;9.50;3042;rwd;front;141;ohc;mpfi;gas;57.50;28;162,02;188.80;volvo;74;four;four;5400;1651500;3.15;-1;104.30;67.20
+198;turbo;sedan;3.62;17;7.50;3045;rwd;front;130;ohc;mpfi;gas;56.20;22;114,62;188.80;volvo;103;four;four;5100;1842000;3.15;-2;104.30;67.20
+199;- ;wagon;3.62;17;7.50;3157;rwd;- ;130;ohc;mpfi;gas;57.50;22;160,79;188.80;volvo;74;four;four;5100;1895000;3.15;- ;104.30;67.20
+200;std;sedan;3.78;23;9.50;2952;rwd;front;141;ohc;mpfi;gas;55.50;28;134,85;188.80;volvo;95;-;four;5400;1684500;3.15;-1;109.10;68.90
+201;turbo;sedan;3.78;19;8.70;3049;rwd; -;141;ohc;mpfi;gas;55.50;25;106,38;188.80;volvo;95;four;four;5300;1904500;3.15;-1;109.10;68.80
+202;- ;sedan;3.58;18;8.80;3012;rwd;front; -;ohcv;mpfi;gas;55.50;23;114,74;188.80;volvo;95;six;four;5500;2148500;2.87;-1;109.10;68.90
+203;turbo;sedan;3.01;26;23.00;3217;rwd;front;145;ohc;idi;diesel;55.50;27;111,03;188.80;volvo;95; -;four;4800;2247000;3.40; -;109.10;68.90
+204;turbo;sedan;3.78;19;9.50;3062;rwd;front;141;ohc;mpfi;gas;55.50;25;111,73;188.80;volvo;95;four;four;5400;2262500;3.15;-1;109.10;68.90
