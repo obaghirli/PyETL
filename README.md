@@ -1,2 +1,2 @@
 # PyETL
-pure python package for an ETL job
+python3.5 package for an ETL job
