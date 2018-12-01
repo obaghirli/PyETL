@@ -1,16 +1,70 @@
 import os
 import sys
-
+import copy as cp
 
 # order matters
-SPECIFIED_COLUMNS = ['engine-location',
-                     'num-of-cylinders',
-                     'engine-size',
-                     'weight',
-                     'horsepower',
-                     'aspiration',
-                     'price',
-                     'make']
+SPECIFIED_COLUMNS = {'engine-location': int,
+                     'num-of-cylinders': int,
+                     'engine-size': int,
+                     'weight': float,
+                     'horsepower': float,
+                     'aspiration': int,
+                     'price': float,
+                     'make': str}
+
+
+class Utils(object):
+    def __init__(self):
+        pass
+
+    def read_file(self, filename='Challenge_me.txt'):
+        with open(filename) as fd:
+            rows = fd.readlines()
+        return [row.strip() for row in rows]
+
+    def extract_headers(self, header_row, header_delimiter=";"):
+        def header_udf(x):
+            if len(x) > 0:
+                return x.encode('utf-8').strip()
+            else:
+                return 'unnamed'
+        return list(map(lambda x: header_udf(x), header_row.split(header_delimiter)))
+
+    def map_columns(self, original_columns):
+        index_array = list()
+        for col in SPECIFIED_COLUMNS.keys():
+            col_index = original_columns.index(col)
+            index_array.append(col_index)
+        return index_array
+
+    @classmethod
+    def int_code_generator(cls):
+        it = 0
+        while True:
+            yield it
+            it += 1
+
+    @classmethod
+    def integer_encoder(cls, val, generator):
+        code = encoder_map.get(val, None)
+        if code is not None:
+            return code
+        else:
+            new_code = next(generator)
+            encoder_map[val] = new_code
+            print new_code
+            return new_code
+
+
+# label to int map
+encoder_map = dict()
+
+# register generators
+int_code_generator = Utils.int_code_generator()
+generators = {'int_code_generator': int_code_generator}
+
+# register encoders
+encoders = {'integer_encoder': Utils.integer_encoder}
 
 
 # wrapper class for each entry in the textfile
@@ -34,6 +88,21 @@ class Line(object):
         self.has_null = True if null_char in self.parsed_raw_line else False
         return self
 
+    def _encode(self, fields, encoder='integer_encoder'):
+        _generator = None
+        spec_cols = SPECIFIED_COLUMNS.keys()
+        assert (encoder in encoders.keys())
+        for field in fields:
+            assert (field in spec_cols)
+        if encoder == 'integer_encoder':
+            _generator = generators.get('int_code_generator')
+        for field in fields:
+            field_idx = spec_cols.index(field)
+            field_val = self.parsed_raw_line[field_idx]
+            code = encoders.get(encoder)(field_val, _generator)
+            self.parsed_raw_line[field_idx] = code
+        return self
+
     def process_line(self):
         self.parse(field_delimiter=";").check_null(null_char='-')
 
@@ -45,6 +114,12 @@ class Transformer(object):
     def __init__(self):
         self.orig_data = None
         self.transformed_data = None
+
+    def set_orig_data(self, orig_data):
+        self.orig_data = orig_data
+
+    def set_transformed_data(self, transformed_data):
+        self.transformed_data = transformed_data
 
     def fit(self, data):
         self.orig_data = data
@@ -62,30 +137,13 @@ class Transformer(object):
         self.transformed_data = list(filter(lambda line_obj: line_obj.has_null is False, self.orig_data))
         return self
 
+    @chain
+    def encode(self, fields, encoder='integer_encoder'):
+        self.transformed_data = list(map(lambda line_obj: line_obj._encode(fields, encoder=encoder), self.orig_data))
+        return self
 
-class Utils(object):
-    def __init__(self):
-        pass
-
-    def read_file(self, filename='Challenge_me.txt'):
-        with open(filename) as fd:
-            rows = fd.readlines()
-        return [row.strip() for row in rows]
-
-    def extract_headers(self, header_row, header_delimiter=";"):
-        def header_udf(x):
-            if len(x) > 0:
-                return x.encode('utf-8').strip()
-            else:
-                return 'unnamed'
-        return list(map(lambda x: header_udf(x), header_row.split(header_delimiter)))
-
-    def map_columns(self, original_columns):
-        index_array = list()
-        for col in SPECIFIED_COLUMNS:
-            col_index = original_columns.index(col)
-            index_array.append(col_index)
-        return index_array
+    def copy(self):
+        return cp.deepcopy(self)
 
 
 if __name__ == '__main__':
@@ -103,8 +161,12 @@ if __name__ == '__main__':
     # print line.parse(field_delimiter=";").check_null(null_char="-")
 
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
-    transformer.fit(line_objects).dropna().dropna()
+    transformer.fit(line_objects).dropna().encode(['engine-location'], encoder='integer_encoder')
 
     print len(line_objects)
     print len(transformer.transformed_data)
+
+    print transformer.transformed_data
+    print encoder_map
+
 
