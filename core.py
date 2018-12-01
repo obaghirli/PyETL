@@ -93,6 +93,13 @@ class Line(object):
             self.parsed_raw_line[idx] = field.encode('utf-8').strip()
         return self
 
+    def _flag(self, params):
+        for field, val in params.items():
+            field_idx = schema.keys().index(field)
+            temp = self.parsed_raw_line[field_idx]
+            self.parsed_raw_line[field_idx] = 1 if temp == val else 0
+        return self
+
     def check_null(self, null_char='-'):
         self.has_null = True if null_char in self.parsed_raw_line else False
         return self
@@ -162,6 +169,11 @@ class Transformer(object):
         self.transformed_data = list(map(lambda line_obj: line_obj._str_2_int(fields), self.orig_data))
         return self
 
+    @chain
+    def flag(self, params):
+        self.transformed_data = list(map(lambda line_obj: line_obj._flag(params), self.orig_data))
+        return self
+
     def copy(self):
         return cp.deepcopy(self)
 
@@ -181,7 +193,11 @@ if __name__ == '__main__':
     # print line.parse(field_delimiter=";").check_null(null_char="-")
 
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
-    transformer.fit(line_objects).dropna().encode(['engine-location'], encoder='integer_encoder').str_2_int(['num-of-cylinders'])
+    transformer.fit(line_objects)\
+        .dropna()\
+        .encode(['engine-location'], encoder='integer_encoder')\
+        .str_2_int(['num-of-cylinders'])\
+        .flag({'aspiration': 'turbo'})
 
     print len(line_objects)
     print len(transformer.transformed_data)

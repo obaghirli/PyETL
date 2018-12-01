@@ -42,3 +42,8 @@ schema = OrderedDict([('engine-location', int),
                       ('aspiration', int),
                       ('price', float),
                       ('make', str)])
+
+params = {'a': 'turbo'}
+
+for f, v in params.items():
+    print f,v
