@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 vals = ['front', 'end', 'front', 'end', 'back', 'jack', 'jack']
 encoder_map = dict()
 
@@ -30,3 +32,13 @@ def te(**kwargs):
     print type(kwargs.get('copy'))
 
 te(copy=True)
+
+# order matters
+schema = OrderedDict([('engine-location', int),
+                      ('num-of-cylinders', int),
+                      ('engine-size', int),
+                      ('weight', int),
+                      ('horsepower',float),
+                      ('aspiration', int),
+                      ('price', float),
+                      ('make', str)])

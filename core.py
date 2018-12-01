@@ -1,16 +1,21 @@
 import os
 import sys
 import copy as cp
+from collections import OrderedDict
+
+# number words
+num_words = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
+             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
 
 # order matters
-SPECIFIED_COLUMNS = {'engine-location': int,
-                     'num-of-cylinders': int,
-                     'engine-size': int,
-                     'weight': float,
-                     'horsepower': float,
-                     'aspiration': int,
-                     'price': float,
-                     'make': str}
+schema = OrderedDict([('engine-location', int),
+                      ('num-of-cylinders', int),
+                      ('engine-size', int),
+                      ('weight', int),
+                      ('horsepower', float),
+                      ('aspiration', int),
+                      ('price', float),
+                      ('make', str)])
 
 
 class Utils(object):
@@ -32,7 +37,7 @@ class Utils(object):
 
     def map_columns(self, original_columns):
         index_array = list()
-        for col in SPECIFIED_COLUMNS.keys():
+        for col in schema.keys():
             col_index = original_columns.index(col)
             index_array.append(col_index)
         return index_array
@@ -52,7 +57,6 @@ class Utils(object):
         else:
             new_code = next(generator)
             encoder_map[val] = new_code
-            print new_code
             return new_code
 
 
@@ -84,13 +88,18 @@ class Line(object):
         self.parsed_raw_line = list(map(lambda x: x.strip(), parsed_raw_line))
         return self
 
+    def to_utf(self):
+        for idx, field in enumerate(self.parsed_raw_line):
+            self.parsed_raw_line[idx] = field.encode('utf-8').strip()
+        return self
+
     def check_null(self, null_char='-'):
         self.has_null = True if null_char in self.parsed_raw_line else False
         return self
 
     def _encode(self, fields, encoder='integer_encoder'):
         _generator = None
-        spec_cols = SPECIFIED_COLUMNS.keys()
+        spec_cols = schema.keys()
         assert (encoder in encoders.keys())
         for field in fields:
             assert (field in spec_cols)
@@ -103,8 +112,14 @@ class Line(object):
             self.parsed_raw_line[field_idx] = code
         return self
 
+    def _str_2_int(self, fields):
+        for field in fields:
+            field_idx = schema.keys().index(field)
+            self.parsed_raw_line[field_idx] = num_words.get(self.parsed_raw_line[field_idx], None)
+        return self
+
     def process_line(self):
-        self.parse(field_delimiter=";").check_null(null_char='-')
+        self.parse(field_delimiter=";").to_utf().check_null(null_char='-')
 
     def __repr__(self):
         return "{0}:{1}".format(self.parsed_raw_line, self.has_null)
@@ -127,7 +142,7 @@ class Transformer(object):
 
     def chain(func):
         def decorator(self, *args, **kwargs):
-            if self.transformed_data:
+            if self.transformed_data is not None:
                 self.orig_data, self.transformed_data = self.transformed_data, None
             return func(self, *args, **kwargs)
         return decorator
@@ -140,6 +155,11 @@ class Transformer(object):
     @chain
     def encode(self, fields, encoder='integer_encoder'):
         self.transformed_data = list(map(lambda line_obj: line_obj._encode(fields, encoder=encoder), self.orig_data))
+        return self
+
+    @chain
+    def str_2_int(self, fields):
+        self.transformed_data = list(map(lambda line_obj: line_obj._str_2_int(fields), self.orig_data))
         return self
 
     def copy(self):
@@ -161,7 +181,7 @@ if __name__ == '__main__':
     # print line.parse(field_delimiter=";").check_null(null_char="-")
 
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
-    transformer.fit(line_objects).dropna().encode(['engine-location'], encoder='integer_encoder')
+    transformer.fit(line_objects).dropna().encode(['engine-location'], encoder='integer_encoder').str_2_int(['num-of-cylinders'])
 
     print len(line_objects)
     print len(transformer.transformed_data)
