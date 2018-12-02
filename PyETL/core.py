@@ -247,7 +247,6 @@ def transform(data):
 
 
 # if __name__ == '__main__':
-#     raw_data = load('Challenge_me.txt')
+#     raw_data = load('../Challenge_me.txt')
 #     print(transform(raw_data))
-
 
