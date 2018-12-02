@@ -22,7 +22,7 @@ class Utils(object):
     def __init__(self):
         pass
 
-    def read_file(self, filename='Challenge_me.txt'):
+    def read_file(self, filename):
         with open(filename) as fd:
             rows = fd.readlines()
         return [row.strip() for row in rows]
@@ -125,11 +125,40 @@ class Line(object):
             self.parsed_raw_line[field_idx] = num_words.get(self.parsed_raw_line[field_idx], None)
         return self
 
+    def _enforce_type(self):
+        for field, _type in schema.items():
+            field_idx = schema.keys().index(field)
+            temp = self.parsed_raw_line[field_idx]
+            if _type == int:
+                self.parsed_raw_line[field_idx] = _type(temp)
+            elif _type == str:
+                self.parsed_raw_line[field_idx] = _type(temp).encode('utf-8')
+            elif _type == float:
+                if isinstance(temp, str) is True:
+                    self.parsed_raw_line[field_idx] = _type(temp.replace(",", "."))
+                else:
+                    self.parsed_raw_line[field_idx] = _type(temp)
+            else:
+                self.parsed_raw_line[field_idx] = _type(temp)
+        return self
+
+    def _scale(self, params):
+        numeric_types = [int, float, long]
+        for field, factor in params.items():
+            assert(sum([isinstance(factor, _type) for _type in numeric_types]) >= 1)
+            field_type = schema.get(field)
+            assert(field_type in numeric_types)
+            field_idx = schema.keys().index(field)
+            temp = self.parsed_raw_line[field_idx]
+            assert(sum([isinstance(temp, _type) for _type in numeric_types]) >= 1)
+            self.parsed_raw_line[field_idx] = temp * factor
+        return self
+
     def process_line(self):
         self.parse(field_delimiter=";").to_utf().check_null(null_char='-')
 
     def __repr__(self):
-        return "{0}:{1}".format(self.parsed_raw_line, self.has_null)
+        return "{0}".format(self.parsed_raw_line)
 
 
 class Transformer(object):
@@ -174,35 +203,39 @@ class Transformer(object):
         self.transformed_data = list(map(lambda line_obj: line_obj._flag(params), self.orig_data))
         return self
 
+    @chain
+    def enforce_type(self):
+        self.transformed_data = list(map(lambda line_obj: line_obj._enforce_type(), self.orig_data))
+        return self
+
+    @chain
+    def scale(self, params):
+        self.transformed_data = list(map(lambda line_obj: line_obj._scale(params), self.orig_data))
+        return self
+
     def copy(self):
         return cp.deepcopy(self)
 
 
 if __name__ == '__main__':
-    sample_line = """14;std;sedan;3.31;20;9.00;3055;rwd;front;164;ohc;mpfi;gas;55.70;25;121,76;189.00;bmw;-;- ;four;4250;2456500;3.19;1;103.50;66.90"""
-
     utils = Utils()
     transformer = Transformer()
 
-    rows = utils.read_file(filename='Challenge_me.txt')
+    rows = utils.read_file('Challenge_me.txt')
     header_row = rows[0]
     data_rows = rows[1:]
     original_columns = utils.extract_headers(header_row, header_delimiter=";")
     specified_columns_indices = utils.map_columns(original_columns)
-    # line = Line(sample_line, specified_columns_indices)
-    # print line.parse(field_delimiter=";").check_null(null_char="-")
 
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
     transformer.fit(line_objects)\
         .dropna()\
         .encode(['engine-location'], encoder='integer_encoder')\
         .str_2_int(['num-of-cylinders'])\
-        .flag({'aspiration': 'turbo'})
-
-    print len(line_objects)
-    print len(transformer.transformed_data)
+        .flag({'aspiration': 'turbo'})\
+        .enforce_type()\
+        .scale({'price': 0.01})
 
     print transformer.transformed_data
-    print encoder_map
 
 
