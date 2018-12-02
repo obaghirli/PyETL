@@ -246,8 +246,8 @@ def transform(data):
         .collect()
 
 
-if __name__ == '__main__':
-    data = load('Challenge_me.txt')
-    print(transform(data))
+# if __name__ == '__main__':
+#     data = load('Challenge_me.txt')
+#     print(transform(data))
 
 
