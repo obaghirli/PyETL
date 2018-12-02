@@ -1,5 +1,3 @@
-import os
-import sys
 import copy as cp
 from collections import OrderedDict
 
@@ -22,20 +20,23 @@ class Utils(object):
     def __init__(self):
         pass
 
-    def read_file(self, filename):
-        with open(filename) as fd:
+    @classmethod
+    def read_file(cls, filename):
+        with open(filename, 'r') as fd:
             rows = fd.readlines()
         return [row.strip() for row in rows]
 
-    def extract_headers(self, header_row, header_delimiter=";"):
+    @classmethod
+    def extract_headers(cls, header_row, header_delimiter=";"):
         def header_udf(x):
             if len(x) > 0:
-                return x.encode('utf-8').strip()
+                return x.strip()
             else:
                 return 'unnamed'
         return list(map(lambda x: header_udf(x), header_row.split(header_delimiter)))
 
-    def map_columns(self, original_columns):
+    @classmethod
+    def map_columns(cls, original_columns):
         index_array = list()
         for col in schema.keys():
             col_index = original_columns.index(col)
@@ -76,37 +77,30 @@ class Line(object):
     def __init__(self, raw_line, col_indices):
         self.raw_line = raw_line
         self.col_indices = col_indices
-
         self.parsed_raw_line = None
         self.has_null = False
+        self._process_line()
 
-        self.process_line()
-
-    def parse(self, field_delimiter=";"):
+    def _parse(self, field_delimiter=";"):
         split_raw_line = self.raw_line.split(field_delimiter)
         parsed_raw_line = [split_raw_line[col_idx] for col_idx in self.col_indices]
         self.parsed_raw_line = list(map(lambda x: x.strip(), parsed_raw_line))
         return self
 
-    def to_utf(self):
-        for idx, field in enumerate(self.parsed_raw_line):
-            self.parsed_raw_line[idx] = field.encode('utf-8').strip()
-        return self
-
     def _flag(self, params):
         for field, val in params.items():
-            field_idx = schema.keys().index(field)
+            field_idx = list(schema.keys()).index(field)
             temp = self.parsed_raw_line[field_idx]
             self.parsed_raw_line[field_idx] = 1 if temp == val else 0
         return self
 
-    def check_null(self, null_char='-'):
+    def _check_null(self, null_char='-'):
         self.has_null = True if null_char in self.parsed_raw_line else False
         return self
 
     def _encode(self, fields, encoder='integer_encoder'):
         _generator = None
-        spec_cols = schema.keys()
+        spec_cols = list(schema.keys())
         assert (encoder in encoders.keys())
         for field in fields:
             assert (field in spec_cols)
@@ -121,13 +115,13 @@ class Line(object):
 
     def _str_2_int(self, fields):
         for field in fields:
-            field_idx = schema.keys().index(field)
+            field_idx = list(schema.keys()).index(field)
             self.parsed_raw_line[field_idx] = num_words.get(self.parsed_raw_line[field_idx], None)
         return self
 
     def _enforce_type(self):
         for field, _type in schema.items():
-            field_idx = schema.keys().index(field)
+            field_idx = list(schema.keys()).index(field)
             temp = self.parsed_raw_line[field_idx]
             if _type == int:
                 self.parsed_raw_line[field_idx] = _type(temp)
@@ -143,19 +137,19 @@ class Line(object):
         return self
 
     def _scale(self, params):
-        numeric_types = [int, float, long]
+        numeric_types = [int, float]
         for field, factor in params.items():
             assert(sum([isinstance(factor, _type) for _type in numeric_types]) >= 1)
             field_type = schema.get(field)
             assert(field_type in numeric_types)
-            field_idx = schema.keys().index(field)
+            field_idx = list(schema.keys()).index(field)
             temp = self.parsed_raw_line[field_idx]
             assert(sum([isinstance(temp, _type) for _type in numeric_types]) >= 1)
             self.parsed_raw_line[field_idx] = temp * factor
         return self
 
-    def process_line(self):
-        self.parse(field_delimiter=";").to_utf().check_null(null_char='-')
+    def _process_line(self):
+        self._parse(field_delimiter=";")._check_null(null_char='-')
 
     def __repr__(self):
         return "{0}".format(self.parsed_raw_line)
@@ -213,29 +207,39 @@ class Transformer(object):
         self.transformed_data = list(map(lambda line_obj: line_obj._scale(params), self.orig_data))
         return self
 
+    def add_header(self):
+        headers = list(schema.keys())
+        self.transformed_data.insert(0, headers)
+        return self
+
     def copy(self):
         return cp.deepcopy(self)
 
 
-if __name__ == '__main__':
-    utils = Utils()
-    transformer = Transformer()
+def load(dataFile):
+    return Utils.read_file(dataFile)
 
-    rows = utils.read_file('Challenge_me.txt')
-    header_row = rows[0]
-    data_rows = rows[1:]
-    original_columns = utils.extract_headers(header_row, header_delimiter=";")
-    specified_columns_indices = utils.map_columns(original_columns)
 
+def transform(data):
+    header_row = data[0]
+    data_rows = data[1:]
+    original_columns = Utils.extract_headers(header_row, header_delimiter=";")
+    specified_columns_indices = Utils.map_columns(original_columns)
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
+    transformer = Transformer()
     transformer.fit(line_objects)\
         .dropna()\
         .encode(['engine-location'], encoder='integer_encoder')\
         .str_2_int(['num-of-cylinders'])\
         .flag({'aspiration': 'turbo'})\
         .enforce_type()\
-        .scale({'price': 0.01})
+        .scale({'price': 0.01})\
+        .add_header()
+    return transformer.transformed_data
 
-    print transformer.transformed_data
+
+if __name__ == '__main__':
+    data = load('Challenge_me.txt')
+    print(transform(data))
 
 
