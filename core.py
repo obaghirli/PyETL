@@ -1,19 +1,10 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import functools
 import copy as cp
 from collections import OrderedDict
-
-# number words
-num_words = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
-             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
-
-# order matters
-schema = OrderedDict([('engine-location', int),
-                      ('num-of-cylinders', int),
-                      ('engine-size', int),
-                      ('weight', int),
-                      ('horsepower', float),
-                      ('aspiration', int),
-                      ('price', float),
-                      ('make', str)])
 
 
 class Utils(object):
@@ -61,18 +52,7 @@ class Utils(object):
             return new_code
 
 
-# label to int map
-encoder_map = dict()
-
-# register generators
-int_code_generator = Utils.int_code_generator()
-generators = {'int_code_generator': int_code_generator}
-
-# register encoders
-encoders = {'integer_encoder': Utils.integer_encoder}
-
-
-# wrapper class for each entry in the textfile
+# wrapper class for each entry in the data file
 class Line(object):
     def __init__(self, raw_line, col_indices):
         self.raw_line = raw_line
@@ -171,11 +151,13 @@ class Transformer(object):
         return self
 
     def chain(func):
+        @functools.wraps(func)
         def decorator(self, *args, **kwargs):
             if self.transformed_data is not None:
                 self.orig_data, self.transformed_data = self.transformed_data, None
             return func(self, *args, **kwargs)
         return decorator
+
 
     @chain
     def dropna(self):
@@ -207,13 +189,40 @@ class Transformer(object):
         self.transformed_data = list(map(lambda line_obj: line_obj._scale(params), self.orig_data))
         return self
 
-    def add_header(self):
+    chain = staticmethod(chain)
+
+    def collect(self):
         headers = list(schema.keys())
-        self.transformed_data.insert(0, headers)
-        return self
+        out = list(map(lambda x: x.parsed_raw_line, self.transformed_data))
+        return [headers] + out
 
     def copy(self):
         return cp.deepcopy(self)
+
+
+# number words
+num_words = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
+             'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
+
+# order matters
+schema = OrderedDict([('engine-location', int),
+                      ('num-of-cylinders', int),
+                      ('engine-size', int),
+                      ('weight', int),
+                      ('horsepower', float),
+                      ('aspiration', int),
+                      ('price', float),
+                      ('make', str)])
+
+# label to int map
+encoder_map = dict()
+
+# register generators
+int_code_generator = Utils.int_code_generator()
+generators = {'int_code_generator': int_code_generator}
+
+# register encoders
+encoders = {'integer_encoder': Utils.integer_encoder}
 
 
 def load(dataFile):
@@ -227,15 +236,14 @@ def transform(data):
     specified_columns_indices = Utils.map_columns(original_columns)
     line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
     transformer = Transformer()
-    transformer.fit(line_objects)\
+    return transformer.fit(line_objects)\
         .dropna()\
         .encode(['engine-location'], encoder='integer_encoder')\
         .str_2_int(['num-of-cylinders'])\
         .flag({'aspiration': 'turbo'})\
         .enforce_type()\
         .scale({'price': 0.01})\
-        .add_header()
-    return transformer.transformed_data
+        .collect()
 
 
 if __name__ == '__main__':
