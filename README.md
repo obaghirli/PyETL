@@ -10,15 +10,15 @@ _python3.5 package for ETL jobs_
 # create a python3.5 environment and install the package
 $ pip install -i https://test.pypi.org/simple/ PyETL==1.0.4
 # start the python shell and execute the test command
-# if the test command completed successfully, proceed
-# with the Quickstart
+# if the test command completed successfully, 
+# proceed with the Quickstart
 $ python
 >>> import PyETL
 ```
 
 ### Quick Start
 ```sh
-# pre-built pipeline: PyETL.transform
+# pre-built pipeline: transform
 >>> from PyETL import load
 >>> from PyETL import transform
 >>> raw_data = load("/Users/abra.cadabra/data/Challenge_me.txt")
@@ -47,9 +47,9 @@ $ python
 ```
 
 ### Architecture
-+ Datafile is read and each line is stored in a list producing `list of strings`
-+ `Class Line` wraps each line in the list and creates `list of line objects`
-+ Extracting specified column values and flagging `line objects` containing null values are done on the fly during the initialization phase of the Line objects
++ Data file is read and each line is stored in a list producing `list of strings`
++ `Class Line` wraps each line in the list and creates a `list of line objects`
++ Extracting specified column values and flagging `line objects` containing null values are done on the fly during the initialization phase of the line objects
 + Transformations are applied on the `list of line objects`
 + Transformers utilize `map()`, `filter()` and `lambda` functions for performance
 + Transformers are chainable via the help of `decorators` to achieve flexibility and generalization e.g. `transformer.func1().func2().func3()`
@@ -61,7 +61,7 @@ ETL pipeline that:
 + transforms the data
 + and returns a matrix (list of lists).
 
-## Schema
+### Schema
 | Field | Type |
 | ------ | ----------- |
 | engine-location   | int |
@@ -89,7 +89,7 @@ ETL pipeline that:
   - Wrapper class for a raw line read from the data file
   - Implements transformers for each line 
   - Args:
-    * raw_line: str, a row from the datafile
+    * raw_line: str, a row from the data file
     * col_indices: list of int, indices of the specified columns in the data file
   - Returns:
     * line object
@@ -137,7 +137,7 @@ ETL pipeline that:
    - Returns:
      * list of strings 
 + **transform**  - def transform(raw_data)
-  - A pre-built pipeline, that achieves the task
+  - A pre-built pipeline that achieves the task
   - Args:
     * raw_data: list of strings, each string representing a row from the data file
   - Returns:
@@ -149,6 +149,6 @@ ETL pipeline that:
     * flag({'aspiration': 'turbo'}): if 'turbo', flag it as 1, 0 otherwise
     * enforce_type(): converts the specified column data types as described in the schema 
     * scale({'price': 0.01}): scales the specified field
-    * collect(): collects the payload from the transformed line objects and injects the header as a first entry
+    * collect(): collects the payload from the transformed line objects and inserts the headers as a first entry
 
 

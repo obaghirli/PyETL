@@ -1,8 +1,9 @@
 from setuptools import setup
 
+exec(open('PyETL/version.py').read())
 setup(
     name='PyETL',
-    version='1.0.7',
+    version=__version__,
     packages=['PyETL'],
     url='https://github.com/orkhanbaghirli/PyETL',
     license='MIT',
