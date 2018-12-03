@@ -4,6 +4,7 @@ _python3.5 package for ETL jobs_
 
 ***
 
+
 ### Install
 ```sh
 # create a python3.5 environment and install the package
@@ -53,6 +54,12 @@ $ python
 + Transformers utilize `map()`, `filter()` and `lambda` functions for performance
 + Transformers are chainable via the help of `decorators` to achieve flexibility and generalization e.g. `transformer.func1().func2().func3()`
 + Integer encoding is done with the help of `generators`
+
+### Task
+ETL pipeline that:
++ extracts data from a given file (.txt),
++ transforms the data
++ and returns a matrix (list of lists).
 
 ## Schema
 | Field | Type |
@@ -124,6 +131,24 @@ $ python
       * collect(self)
       * copy(self)
 + **load**  - def load(dataFile)
+   - Reads an input file and generates a list of strings representing each line
+   - Args:
+     * dataFile: str, Location of the .txt file e.g. ~/Challenge_me.txt
+   - Returns:
+     * list of strings 
 + **transform**  - def transform(raw_data)
+  - A pre-built pipeline, that achieves the task
+  - Args:
+    * raw_data: list of strings, each string representing a row from the data file
+  - Returns:
+    * transformed data: list of list, transformed data where the first entry is the list of headers
+  - Stages of transformations:
+    * dropna(): dropns the entry if any of the specified columns is null 
+    * encode(['engine-location'], encoder='integer_encoder'): integer encoder i.e. 'green: 0, yellow: 1, black: 2', converts labels to integers, can be decoded to recover the original data via the internal map
+    * str_2_int(['num-of-cylinders']): 'three' -> 3
+    * flag({'aspiration': 'turbo'}): if 'turbo', flag it as 1, 0 otherwise
+    * enforce_type(): converts the specified column data types as described in the schema 
+    * scale({'price': 0.01}): scales the specified field
+    * collect(): collects the payload from the transformed line objects and injects the header as a first entry
 
 
