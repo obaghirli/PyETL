@@ -18,7 +18,15 @@ class Utils(object):
         return [row.strip() for row in rows]
 
     @classmethod
-    def extract_headers(cls, header_row, header_delimiter=";"):
+    def extract_headers(cls, raw_data):
+        return raw_data[0]
+
+    @classmethod
+    def extract_data(cls, raw_data):
+        return raw_data[1:]
+
+    @classmethod
+    def parse_headers(cls, header_row, header_delimiter=";"):
         def header_udf(x):
             if len(x) > 0:
                 return x.strip()
@@ -33,6 +41,10 @@ class Utils(object):
             col_index = original_columns.index(col)
             index_array.append(col_index)
         return index_array
+
+    @classmethod
+    def linearize(cls, data_rows, specified_columns_indices):
+        return list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
 
     @classmethod
     def int_code_generator(cls):
@@ -67,15 +79,15 @@ class Line(object):
         self.parsed_raw_line = list(map(lambda x: x.strip(), parsed_raw_line))
         return self
 
+    def _check_null(self, null_char='-'):
+        self.has_null = True if null_char in self.parsed_raw_line else False
+        return self
+
     def _flag(self, params):
         for field, val in params.items():
             field_idx = list(schema.keys()).index(field)
             temp = self.parsed_raw_line[field_idx]
             self.parsed_raw_line[field_idx] = 1 if temp == val else 0
-        return self
-
-    def _check_null(self, null_char='-'):
-        self.has_null = True if null_char in self.parsed_raw_line else False
         return self
 
     def _encode(self, fields, encoder='integer_encoder'):
@@ -229,12 +241,12 @@ def load(dataFile):
     return Utils.read_file(dataFile)
 
 
-def transform(data):
-    header_row = data[0]
-    data_rows = data[1:]
-    original_columns = Utils.extract_headers(header_row, header_delimiter=";")
+def transform(raw_data):
+    header_row = Utils.extract_headers(raw_data)
+    data_rows = Utils.extract_data(raw_data)
+    original_columns = Utils.parse_headers(header_row, header_delimiter=";")
     specified_columns_indices = Utils.map_columns(original_columns)
-    line_objects = list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
+    line_objects = Utils.linearize(data_rows, specified_columns_indices)
     transformer = Transformer()
     return transformer.fit(line_objects)\
         .dropna()\
