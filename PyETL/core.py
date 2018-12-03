@@ -43,7 +43,11 @@ class Utils(object):
         return index_array
 
     @classmethod
-    def linearize(cls, data_rows, specified_columns_indices):
+    def linearize(cls, raw_data):
+        header_row = Utils.extract_headers(raw_data)
+        data_rows = Utils.extract_data(raw_data)
+        original_columns = Utils.parse_headers(header_row, header_delimiter=";")
+        specified_columns_indices = Utils.map_columns(original_columns)
         return list(map(lambda data_row: Line(data_row, specified_columns_indices), data_rows))
 
     @classmethod
@@ -242,11 +246,7 @@ def load(dataFile):
 
 
 def transform(raw_data):
-    header_row = Utils.extract_headers(raw_data)
-    data_rows = Utils.extract_data(raw_data)
-    original_columns = Utils.parse_headers(header_row, header_delimiter=";")
-    specified_columns_indices = Utils.map_columns(original_columns)
-    line_objects = Utils.linearize(data_rows, specified_columns_indices)
+    line_objects = Utils.linearize(raw_data)
     transformer = Transformer()
     return transformer.fit(line_objects)\
         .dropna()\
