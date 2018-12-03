@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='PyETL',
-    version='1.0.6',
+    version='1.0.7',
     packages=['PyETL'],
     url='https://github.com/orkhanbaghirli/PyETL',
     license='MIT',
