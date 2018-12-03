@@ -8,7 +8,7 @@ _python3.5 package for ETL jobs_
 ### Install
 ```sh
 # create a python3.5 environment and install the package
-$ pip install -i https://test.pypi.org/simple/ PyETL==1.0.4
+$ pip install -i https://test.pypi.org/simple/ PyETL==1.0.8
 # start the python shell and execute the test command
 # if the test command completed successfully, 
 # proceed with the Quickstart
